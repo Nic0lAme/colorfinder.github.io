@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo.png" type="image/png">
+    <title>ColorFinder</title>
+</head>
+<body>
+    <section class="color_picker hidden">
+        <h2 class="color_picker__title">Find the right RGB Code</h2>
+        <div class="color_picker__sliders">
+            <div class="color_picker__slider red">
+                <label for="red_slider">R</label>
+                <input type="range" id="red_slider" min="0" max="255"value="0">
+                <input type="number" id="red_number" min="0" max="255" value="0">
+            </div>
+            <div class="color_picker__slider green">
+                <label for="green_slider">G</label>
+                <input type="range" id="green_slider" min="0" max="255" value="0">
+                <input type="number" id="green_number" min="0" max="255" value="0">
+            </div>
+            <div class="color_picker__slider blue">
+                <label for="blue_slider">B</label>
+                <input type="range" id="blue_slider" min="0" max="255"value="0">
+                <input type="number" id="blue_number" min="0" max="255" value="0">
+            </div>
+            <button onclick="Submit()" class="color_picker__submit">Submit</button>
+        </div>
+    </section>
+    <section class="comparator hidden">
+        <h3 class="comparator__timer">30</h3>
+        <div class="comparator__comp">
+            <div class="comparator__right_color">
+                <p class="comparator__text_right">Right</p>
+                <div></div>
+            </div>
+            <div class="comparator__your_color">
+                <p class="comparator__text_your">Yours</p>
+                <div></div>
+            </div>
+        </div>
+        <div class="comparator__score">
+            <p class="comparator__score_text">Score : 0</p>
+            <p class="comparator__total_score">Total : 0 (0)</p>
+        </div>
+    </section>
+
+    <section class="start_game">
+        <h2 class="start_game__title">COLOR FINDER</h2>
+        <div class="game_selector">
+            <select id="game_type" class="game_selector__type">
+                <option value="Classic">Classic</option>
+                <option value="Short">Short</option>
+                <option value="Blitz">Blitz</option>
+                <option value="Expert">Expert</option>
+                <option value="Long">Long</option>
+                <option value="Custom">Custom</option>
+            </select>
+            <div class="game_selector__data">
+                <label for="duration">Duration : </label>
+                <input type="number" name="duration" id="duration" min="5" max="120">
+                <label for="round">Number of round : </label>
+                <input type="number" name="round" id="round" min="3" max="100">
+            </div>
+        </div>
+        <button class="button_big" onclick="StartGame()">Start</button>
+    </section>
+
+    <section class="score hidden">
+        <h2 class="score__title">Your Score :</h2>
+        <h1 class="score__amount">6745</h1>
+        <div class="score__score_data">
+            <p class="announce">Mean : </p>
+            <p class="stat" id="score_mean">457</p>
+            <p class="announce">Number of round : </p>
+            <p class="stat" id="round_number">10</p>
+            <p class="announce">Time by round : </p>
+            <p class="stat" id="time_by_round">10</p>
+        </div>
+        <button class="score__continue button_big" onclick="Continue()">Continue</button>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

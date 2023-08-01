@@ -1,0 +1,347 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Roboto+Slab:wght@400;600;800&display=swap');
+
+*, *::before, *::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: "Roboto Slab", Helevetica, Arial, sans-serif;
+}
+
+body {
+    height:100vh;
+}
+
+.color_picker {
+    position:absolute;
+    top: 50%;
+    left: 30%;
+    transform: translate(-50%,-50%);
+    width: 30rem;
+    height: 30rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    box-shadow: 1px 10px 15px 1px rgba(0, 0, 0, 0.5);
+    
+    background: #202030;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    transition: all .3s ease-in-out;
+}
+
+.color_picker.hidden {
+    transform: translate(-400%, -50%);
+}
+
+.color_picker__title {
+    color: white;
+    font-size: 2rem;
+    font-weight: 800;
+}
+
+.color_picker__sliders {
+    height: 10rem;
+    width: 25rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.color_picker__slider {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.color_picker label {
+    font-size: 3rem;
+    font-weight: 600;
+}
+
+:where(#red_slider, #green_slider, #blue_slider) {
+    width: 20rem;
+    margin: .5rem;
+}
+
+:where(#red_number, #green_number, #blue_number) {
+    width: 4rem;
+    height: 2rem;
+
+    font-size: 1.2rem;
+}
+
+.red *:not(input){
+    color: #FF2233;
+    fill: #FF2233;
+}
+
+.green *:not(input){
+    color: #22FF33;
+    fill: #22FF33;
+}
+
+.blue  *:not(input){
+    color: #3322FF;
+    fill: #3322FF;
+}
+
+.color_picker__submit {
+    border:none;
+    outline:none;
+    width: 10rem;
+    height: 4rem;
+    padding: 1rem;
+
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: center;
+
+    border-radius: 1.5rem;
+    background: #202030;
+    box-shadow: 2px 5px 10px 1px rgb(255, 255, 255, 0.5);
+    color: white;
+
+    cursor: pointer;
+}
+
+.comparator {
+    position: absolute;
+    right: 20%;
+    top: 50%;
+    transform: translate(50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 13rem;
+    height:19rem;
+    background: #202030;
+    border-radius: 1rem;
+    box-shadow: 5px 10px 15px 1px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+
+    color: white;
+
+    transition: all .3s ease-in-out;
+}
+
+.comparator.hidden {
+    transform: translate(400%, -50%);
+}
+
+.comparator__timer {
+    font-size: 2.2rem;
+    margin-bottom: 10px;
+}
+
+.comparator__comp {
+    display:flex;
+    justify-content: space-between;
+
+    width: 10rem;
+    height: 10rem;
+
+    border-radius: 1.2rem;
+    overflow: hidden;
+
+    box-shadow: 2px 5px 8px 1px rgba(0, 0, 0, 0.5);
+}
+
+.comparator__comp > * {
+    width: 50%;
+}
+
+.comparator__comp p {
+    text-align: center;
+    height: 2rem;
+    font-size: 1.2rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+}
+
+.comparator__right_color div {
+    width: 100%;
+    height: 100%;
+}
+
+.comparator__your_color div {
+    width: 100%;
+    height: 100%;
+}
+
+.comparator__score {
+    display: flex;
+    width: 90%;
+    margin: 10px 40px;
+    flex-direction: column;
+    align-items: flex-start;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.start_game {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 32rem;
+    height: 22rem;
+    background: #202030;
+    border-radius: 1rem;
+    box-shadow: 2px 10px 15px 1px rgba(0, 0, 0, 0.5);
+    padding: 2rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: all .3s ease-in-out;
+}
+
+.start_game.hidden {
+    transform: translate(-50%, 400%);
+}
+
+.start_game__title {
+    color:white;
+    font-size: 2.4rem;
+    font-weight: 800;
+}
+
+.game_selector {
+    width: 20rem;
+    height: 9rem;
+}
+
+.game_selector__type {
+    width: 100%;
+    height: 45%;
+    margin: 5px;
+    color: black;
+    font-size: 1.3rem;
+    font-weight: 600;
+    text-align: center;
+
+    border: none;
+    outline: none;
+
+    border-radius: .5rem;
+}
+
+.game_selector__data {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50%;
+    width: 100%;
+
+    margin: 5px;
+
+    position: relative;
+}
+
+.game_selector__data * {
+    border: none;
+    outline: none;
+    border-radius: .3rem;
+    width: 48%;
+    height: 50%;
+}
+
+.game_selector__data label {
+    color: white;
+    position: absolute;
+
+    top: 0;
+}
+
+.game_selector__data label:nth-child(1) {
+    left: 0;
+    transform: translate(2.5rem, -.5rem);
+}
+
+.game_selector__data label:nth-of-type(2) {
+    right: 0;
+    transform: translate(.5rem, -.5rem);
+}
+
+.game_selector__data input {
+    font-size: 1.2rem;
+    font-weight: 600;
+    padding:.5rem;
+}
+
+.score {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 32rem;
+    height: 21rem;
+    background: #202030;
+    border-radius: 1rem;
+    box-shadow: 2px 10px 15px 1px rgba(0, 0, 0, 0.5);
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+
+    transition: all .3s ease-in-out;
+    color: white;
+}
+
+.score.hidden{
+    transform: translate(-50%, -400%);
+}
+
+.score__title {
+    font-size: 1.8rem;
+    font-weight: 800;
+}
+
+.score__amount {
+    font-size: 2.4rem;
+}
+
+.score__score_data {
+    width: 80%;
+}
+
+.announce {
+    color: grey;
+}
+
+.stat {
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+
+.button_big {
+    border: none;
+    outline: none;
+    border-radius: .3rem;
+
+    width: 12rem;
+    height: 4rem;
+    padding: 1rem;
+
+    cursor: pointer;
+
+    background: #22DDA0;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
